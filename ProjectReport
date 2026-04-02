@@ -1,4 +1,6 @@
-Project Report: ErgoVision-AI
+Updating the name to VisionAI. Below is the final, ready-to-use Project Report for Samarth Jai Singh.
+________________________________________
+Project Report: VisionAI
 Course: Computer Vision (CAPSTONE - BYOP)
 Student Name: Samarth Jai Singh
 Institution: VIT Bhopal University
@@ -7,7 +9,7 @@ ________________________________________
 In the modern academic environment, students spend upwards of 8–10 hours in front of digital screens. This leads to two significant issues:
 1.	Postural Kyphosis (Slouching): Long-term spinal misalignment due to poor sitting habits.
 2.	Cognitive Fatigue: Decreased alertness and drowsiness during late-night study sessions, which reduces learning efficiency.
-ErgoVision-AI is a Computer Vision-based solution designed to act as a "digital posture coach." It monitors the user in real-time via a standard webcam, providing immediate feedback on posture and detecting signs of drowsiness.
+VisionAI is a Computer Vision-based solution designed to act as a "digital posture coach." It monitors the user in real-time via a standard webcam, providing immediate feedback on posture and detecting signs of drowsiness.
 ________________________________________
 2. Proposed Solution
 The project utilizes Human Pose Estimation and Facial Landmark Detection to quantify physical behavior.
@@ -33,7 +35,7 @@ Where $p_1 \dots p_6$ are 2D facial landmark locations. When the ratio drops bel
 ________________________________________
 4. Key Decisions & Challenges
 •	Handling Variable Lighting: Initial testing showed that shadows on the face caused the Eye Mesh to flicker. I resolved this by increasing the min_detection_confidence to 0.7 and using a temporal frame counter to avoid "false positive" alerts from natural blinking.
-•	Hardware Constraints: To ensure stability on devices that might experience camera lag (like high-resolution mobile sensors acting as webcaps), I implemented coordinate-based tracking rather than full-image classification to minimize memory overhead.
+•	Hardware Constraints: To ensure stability on devices that might experience camera lag (like high-resolution mobile sensors acting as webcams), I implemented coordinate-based tracking rather than full-image classification to minimize memory overhead.
 ________________________________________
 5. What I Learned
 •	Spatial Geometry in CV: I learned how to translate raw pixel coordinates into meaningful biological angles.
@@ -41,5 +43,5 @@ ________________________________________
 •	Human-Computer Interaction (HCI): Designing a UI that is informative but not distracting for the user during deep work.
 ________________________________________
 6. Conclusion
-ErgoVision-AI demonstrates that Computer Vision can be applied to daily life to improve health and productivity. The project successfully meets all capstone requirements, including code organization, real-world relevance, and technical depth.
+VisionAI demonstrates that Computer Vision can be applied to daily life to improve health and productivity. The project successfully meets all capstone requirements, including code organization, real-world relevance, and technical depth.
 
