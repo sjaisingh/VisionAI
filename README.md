@@ -114,3 +114,8 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
+
+
+
+Ensure you run pip install opencv-python mediapipe numpy in your terminal first.
