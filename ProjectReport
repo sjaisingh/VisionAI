@@ -1,0 +1,45 @@
+Project Report: ErgoVision-AI
+Course: Computer Vision (CAPSTONE - BYOP)
+Student Name: Samarth Jai Singh
+Institution: VIT Bhopal University
+________________________________________
+1. Introduction & Problem Statement
+In the modern academic environment, students spend upwards of 8–10 hours in front of digital screens. This leads to two significant issues:
+1.	Postural Kyphosis (Slouching): Long-term spinal misalignment due to poor sitting habits.
+2.	Cognitive Fatigue: Decreased alertness and drowsiness during late-night study sessions, which reduces learning efficiency.
+ErgoVision-AI is a Computer Vision-based solution designed to act as a "digital posture coach." It monitors the user in real-time via a standard webcam, providing immediate feedback on posture and detecting signs of drowsiness.
+________________________________________
+2. Proposed Solution
+The project utilizes Human Pose Estimation and Facial Landmark Detection to quantify physical behavior.
+Key Features:
+•	Posture Analysis: Measures the angular relationship between the ear, shoulder, and hip to identify slouching.
+•	Fatigue Detection: Implements the Eye Aspect Ratio (EAR) algorithm to detect prolonged eye closure (drowsiness).
+•	Real-time Processing: Optimized for high-frame-rate inference on standard CPU hardware.
+________________________________________
+3. Technical Approach & Decisions
+3.1 Tools & Libraries
+•	OpenCV: Used for video stream acquisition, frame manipulation, and rendering the User Interface (UI).
+•	MediaPipe (BlazePose & FaceMesh): Chosen over traditional CNNs because MediaPipe provides sub-millisecond inference on mobile and desktop CPUs, ensuring the "Real-Time" requirement of the project.
+•	NumPy: Utilized for vector mathematics and coordinate geometry.
+3.2 Posture Detection Logic
+The system identifies three key landmarks: Left Ear ($P_1$), Left Shoulder ($P_2$), and Left Hip ($P_3$). Using the coordinates $(x, y)$, we calculate the interior angle $\theta$:
+$$\theta = \arccos \left( \frac{\vec{P_{2}P_{1}} \cdot \vec{P_{2}P_{3}}}{|\vec{P_{2}P_{1}}| |\vec{P_{2}P_{3}}|} \right)$$
+A threshold of 160° was established. Any angle significantly lower indicates the head is leaning forward (slouching).
+3.3 Drowsiness Detection (EAR)
+Instead of simple "eye-opening" detection, the system calculates the Eye Aspect Ratio.
+The formula used is:
+$$EAR = \frac{||p_2 - p_6|| + ||p_3 - p_5||}{2||p_1 - p_4||}$$
+Where $p_1 \dots p_6$ are 2D facial landmark locations. When the ratio drops below 0.22 for more than 15 consecutive frames, a "Drowsiness Alert" is triggered.
+________________________________________
+4. Key Decisions & Challenges
+•	Handling Variable Lighting: Initial testing showed that shadows on the face caused the Eye Mesh to flicker. I resolved this by increasing the min_detection_confidence to 0.7 and using a temporal frame counter to avoid "false positive" alerts from natural blinking.
+•	Hardware Constraints: To ensure stability on devices that might experience camera lag (like high-resolution mobile sensors acting as webcaps), I implemented coordinate-based tracking rather than full-image classification to minimize memory overhead.
+________________________________________
+5. What I Learned
+•	Spatial Geometry in CV: I learned how to translate raw pixel coordinates into meaningful biological angles.
+•	Optimization: I gained experience in balancing model accuracy with real-time performance.
+•	Human-Computer Interaction (HCI): Designing a UI that is informative but not distracting for the user during deep work.
+________________________________________
+6. Conclusion
+ErgoVision-AI demonstrates that Computer Vision can be applied to daily life to improve health and productivity. The project successfully meets all capstone requirements, including code organization, real-world relevance, and technical depth.
+
