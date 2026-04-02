@@ -1,0 +1,9 @@
+/ergonomics-tracker
+│── /data                # Small sample images of correct vs. incorrect posture
+│── /src
+│   │── main.py          # The primary execution script
+│   │── utils.py         # Helper functions for angle calculation
+│── /assets              # Alarm sound (.mp3) and screenshots for README
+│── requirements.txt     # List of libraries (opencv-python, mediapipe, etc.)
+│── README.md            # Your setup and usage guide
+│── Report.pdf           # The structured capstone document
